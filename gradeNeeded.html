@@ -59,6 +59,10 @@
 			finalForm *= 100;
 			formP = 100;
 		}
+		else if (document.getElementById("otherPerForm").checked){
+			finalForm *= parseFloat(otherForm.value);
+			formP = parseFloat(otherForm.value);
+		}
 		
 		if (document.getElementById("hw0").checked){
 			finalHW = 0;
@@ -80,6 +84,10 @@
 			finalHW *= 100;
 			hwP = 100;
 		}
+		else if (document.getElementById("otherPerHW").checked){
+			finalForm *= parseFloat(otherHW.value);
+			formP = parseFloat(otherHW.value);
+		}
 		
 		if (document.getElementById("summ0").checked){
 			finalSumm = 0;
@@ -100,6 +108,10 @@
 		else if (document.getElementById("summ100").checked){
 			finalSumm *= 100;
 			summP = 100;
+		}
+		else if (document.getElementById("otherPerSumm").checked){
+			finalForm *= parseFloat(otherSumm.value);
+			formP = parseFloat(otherSumm.value);
 		}
 		
 		var i;
