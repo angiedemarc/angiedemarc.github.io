@@ -1,0 +1,281 @@
+<html>
+	<head>
+		<title> Grade Needed </title>
+		<link href='http://fonts.googleapis.com/css?family=Bree+Serif|Muli' rel='stylesheet' type='text/css'>
+		<style>
+			html, body {
+				background: #00B8E6;
+			}
+			h1{
+				padding-top: 15px;
+				text-align: center;
+				font-family: 'Bree Serif', serif;
+				font-size: 40px;
+			}
+			p{
+				padding-left: 20%;
+				font-family: 'Muli', sans-serif;
+			}
+		</style>
+	</head>
+	
+<body>
+	<script>
+	function getGrade (given1, given2, otherGiven, otherMax, otherP){
+		var temp = otherGiven/otherMax;
+		temp *= otherP;
+		return given1 + given2 + temp;
+	}
+	
+	function checkForm(form)
+	{	
+		var finalForm = givenForm.value/maxForm.value;
+		var finalHW = givenHW.value/maxHW.value;
+		var finalSumm = givenSumm.value/maxSumm.value;
+		var formP;
+		var hwP;
+		var summP;
+		var addedPts = assignPoints.value;
+		
+		
+		
+		if (document.getElementById("form0").checked){
+			finalForm = 0;
+			formP = 0;
+		}
+		else if (document.getElementById("form10").checked){
+			finalForm *= 10;
+			formP = 10;
+		}
+		else if (document.getElementById("form40").checked){
+			finalForm *= 40;
+			formP = 40;
+		}
+		else if (document.getElementById("form50").checked){
+			finalForm *= 50;
+			formP = 50;
+		}
+		else if (document.getElementById("form100").checked){
+			finalForm *= 100;
+			formP = 100;
+		}
+		
+		if (document.getElementById("hw0").checked){
+			finalHW = 0;
+			hwP = 0;
+		}
+		else if (document.getElementById("hw10").checked){
+			finalHW *= 10;
+			hwP = 10;
+		}
+		else if (document.getElementById("hw40").checked){
+			finalHW *= 40;
+			hwP = 40;
+		}
+		else if (document.getElementById("hw50").checked){
+			finalHW *= 50;
+			hwP = 50;
+		}
+		else if (document.getElementById("hw100").checked){
+			finalHW *= 100;
+			hwP = 100;
+		}
+		
+		if (document.getElementById("summ0").checked){
+			finalSumm = 0;
+			summP = 0;
+		}
+		else if (document.getElementById("summ10").checked){
+			finalSumm *= 10;
+			summP = 10;
+		}
+		else if (document.getElementById("summ40").checked){
+			finalSumm *= 40;
+			summP = 40;
+		}
+		else if (document.getElementById("summ50").checked){
+			finalSumm *= 50;
+			summP = 50;
+		}
+		else if (document.getElementById("summ100").checked){
+			finalSumm *= 100;
+			summP = 100;
+		}
+		
+		var i;
+		var grade;
+		var lowA;
+		var lowB;
+		var lowC;
+		var lowD;
+		var maxPts;
+		var plusI;
+
+		if(document.getElementById("radioForm").checked) {
+			maxPts = parseFloat(maxForm.value) + parseFloat(addedPts);
+			for (i = addedPts; i>0; i--){
+				plusI = parseFloat(givenForm.value) + parseInt(i);
+				grade = getGrade(finalHW, finalSumm, plusI, maxPts, formP);
+				if (grade >= 89.5){
+					lowA = i;
+				}
+				if (grade < 89.5 && grade>=79.5) {
+                    lowB = i;
+                }
+                if (grade < 79.5 && grade>=69.5) {
+                    lowC = i;
+                }
+                if (grade < 69.5 && grade>=59.5) {
+                    lowD = i;
+                }
+                if (grade < 59.5) {
+                    i = 0;
+                }
+			}
+		}
+		else if(document.getElementById("radioHW").checked) {
+			maxPts = parseFloat(maxHW.value) + parseFloat(addedPts);
+			for (i = addedPts; i>0; i--){
+				plusI = parseFloat(givenHW.value) + parseInt(i);
+				grade = getGrade(finalForm, finalSumm, plusI, maxPts, hwP);
+				if (grade >= 89.5){
+					lowA = i;
+				}
+				else if (grade>=79.5) {
+                    lowB = i;
+                }
+                else if (grade>=69.5) {
+                    lowC = i;
+                }
+                else if (grade>=59.5) {
+                    lowD = i;
+                }
+                else {
+                    i = 0;
+                }
+			}
+		}
+		else if (document.getElementById("radioSumm").checked){
+			maxPts = parseFloat(maxSumm.value) + parseFloat(addedPts);
+			for (i = addedPts; i>0; i--){
+				plusI = parseFloat(givenSumm.value) + parseInt(i);
+				grade = getGrade(finalHW, finalForm, plusI, maxPts, summP);
+				if (grade >= 89.5){
+					lowA = i;
+				}
+				else if (grade>=79.5) {
+                    lowB = i;
+                }
+                else if (grade>=69.5) {
+                    lowC = i;
+                }
+                else if (grade>=59.5) {
+                    lowD = i;
+                }
+                else {
+                    i = 0;
+                }
+			}
+		}
+		if (lowA != 0 && lowA != null){
+			alert ("You need to get a " + lowA + " to have an A in the class");
+		}
+		if (lowB != 0 && lowB != null){
+			alert ("You need to get a " + lowB + " to have a B in the class");
+		}
+		if (lowC != 0 && lowC != null){
+			alert ("You need to get a " + lowC + " to have a C in the class");
+		}
+		if (lowD != 0 && lowD != null){
+			alert ("You need to get a " + lowD + " to have a D in the class");
+		}
+	}
+
+	</script>
+		<h1> <b>What Grade Do I Need?</h1></b>
+
+		<p style = "text-align: center; padding-left: 0%; padding-bottom: 25px"> This program will tell you how many points you need on your upcoming <br>
+		formative, homework, or summative assignment in order to get the grade you want! <br>
+		If you have any problems with this program please email me at: angie.demarco98@gmail.com </p>
+		
+		
+		<div id="giveInput" class="animate form">
+			<form  autocomplete="on"> 
+				<p> 
+					<label>Enter YOUR points for 'Formative':</label>
+					<input name="givenForm" id = "givenForm" type = "text" required = "required" placeholder="Ex: 138"/> 
+				</p>
+				<p> 
+					<label>Enter MAX points for 'Formative':</label>
+					<input name="maxForm" id = "maxForm" type="text" required = "required" placeholder="Ex: 150" />
+				</p>
+				<p>
+					<label>What percentage is formative worth?</label>
+					<input type="radio" name="form" id="form0"> 0%
+					<input type="radio" name="form" id="form10">10%
+					<input type="radio" name="form" id="form40" checked>40%
+					<input type="radio" name="form" id="form50">50%
+					<input type="radio" name="form" id="form100">100%
+					<input type="radio" name="form" id="otherPerForm">Other:
+					<input name = "otherForm" id = "otherForm" type = "number"/>
+				</p>
+				<p style = "padding-top: 15px"> 
+					<label>Enter YOUR points for 'Homework':</label>
+					<input name="givenHW" id = "givenHW" type = "text" required = "required" placeholder="Ex: 27"/> 
+				</p>
+				<p> 
+					<label>Enter MAX points for 'Homework':</label>
+					<input name="maxHW" id = "maxHW" type="text" required = "required" placeholder="Ex: 30" />
+				</p>
+				<p>
+					<label>What percentage is homework worth?</label>
+					<input type="radio" name="hw" id="hw0"> 0%
+					<input type="radio" name="hw" id="hw10" checked>10%
+					<input type="radio" name="hw" id="hw40">40%
+					<input type="radio" name="hw" id="hw50">50%
+					<input type="radio" name="hw" id="hw100">100%
+					<input type="radio" name="hw" id="otherPerHW">Other:
+					<input name = "otherHW" id = "otherHW" type = "number"/>
+				</p>
+				<p style = "padding-top: 15px"> 
+					<label>Enter YOUR points for 'Summative':</label>
+					<input name="givenSumm" id = "givenSumm" type = "text" required = "required" placeholder="Ex: 189"/> 
+				</p>
+				<p> 
+					<label>Enter MAX points for 'Summative':</label>
+					<input name="maxSumm" id = "maxSumm" type="text" required = "required" placeholder="Ex: 200" />
+				</p>
+				<p>
+					<label>What percentage is summative worth?</label>
+					<input type="radio" name="summ" id="summ0"> 0%
+					<input type="radio" name="summ" id="summ10">10%
+					<input type="radio" name="summ" id="summ40">40%
+					<input type="radio" name="summ" id="summ50" checked>50%
+					<input type="radio" name="summ" id="summ100">100%
+					<input type="radio" name="summ" id="otherPerSumm">Other:
+					<input name = "otherSumm" id = "otherSumm" type = "number"/>
+				</p>
+				<p>
+					<label>What is your assignment?</label>
+					<br>
+					<input type="radio" name="type" id="radioForm" checked>Formative
+					<br>
+					<input type="radio" name="type" id="radioHW">Homework
+					<br>
+					<input type="radio" name="type" id="radioSumm">Summative
+				</p>
+				<p>
+					<label>How many points is this assignment worth?</label>
+					<input name="assignPoints" id = "assignPoints" type = "text" required = "required" placeholder="Ex: 20"/> 
+				</p>
+				
+				<p class="signin button" style = "padding-top: 10px"> 
+					<input type="submit" value="Find Grade" onclick = "checkForm(form)"/> 
+				</p>
+			</form>
+	</div>
+	<!-- footer -->
+	<div style = "padding: 15px">
+	</div>
+</body>
+</html>
