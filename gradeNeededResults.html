@@ -22,26 +22,43 @@
 	
 <body>
 	<script>
-		<%
-	for i=1 to Request.QueryString("n").Count
-  		Response.Write(Request.QueryString("n")(i) & "<br>")
-	next
-%> 
+	function getParameterByName(name, url) {
+		if (!url) {
+			url = window.location.href;
+		}
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	var lowA = getParameterByName('lowA'); 
+	var lowB = getParameterByName('lowB'); 
+	var lowC = getParameterByName('lowC'); 
+	var lowD = getParameterByName('lowD');
+	
+	document.getElementById("a").innerHTML = lowA;
+	document.getElementById("b").innerHTML = lowB;
+	document.getElementById("c").innerHTML = lowC;
+	document.getElementById("d").innerHTML = lowD;
+	
 	</script>
 		<h1> <b>Results:</h1></b>
 
 		<p style = "padding-left: 0%; padding-bottom: 25px"> This will only provide the scores needed for achievable grades. <br>
 					For example, if it is impossible to receive a D even if you get a 0%, it will not show you what you need for a D.</p>
-					<p> 
-		
+				
+		<p>To receive an A, you must score a:</p>
+		<p id="a"></p>
+		<p>To receive a B, you must score a:</p>
+		<p id="b"></p>
+		<p>To receive a C, you must score a:</p>
+		<p id="c"></p>
+		<p>To receive a D, you must score a:</p>
+		<p id="d"></p>
 
-		
-		<p> To receive an A:  <%=Request.QueryString("lowA")%> <br>
-		<br>To receive a B:   <%=Request.QueryString("lowB")%> <br>
-		<br>To receive a C:   <%=Request.QueryString("lowC")%> <br>
-		<br>To receive a D:   <%=Request.QueryString("lowD")%> <br>
-		
-		
+
 		
 	<!-- footer -->
 	<div style = "padding: 15px">
