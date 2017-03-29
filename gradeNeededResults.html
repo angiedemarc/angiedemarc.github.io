@@ -22,9 +22,10 @@
 	
 <body>
 	<script>
-		for i=1 to Request.QueryString("n").Count
-  Response.Write(Request.QueryString("n")(i) & "<br>")
-next
+		<%
+	for i=1 to Request.QueryString("n").Count
+  		Response.Write(Request.QueryString("n")(i) & "<br>")
+	next
 %> 
 	</script>
 		<h1> <b>Results:</h1></b>
@@ -32,7 +33,7 @@ next
 		<p style = "padding-left: 0%; padding-bottom: 25px"> This will only provide the scores needed for achievable grades. <br>
 					For example, if it is impossible to receive a D even if you get a 0%, it will not show you what you need for a D.</p>
 					<p> 
-		<%
+		
 
 		
 		<p> To receive an A:  <%=Request.QueryString("lowA")%> <br>
