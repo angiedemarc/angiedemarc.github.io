@@ -27,10 +27,13 @@
 	
 		<p>To receive an A, you must score a:</p>
 		<p id="a"></p>
+	<br>
 		<p>To receive a B, you must score a:</p>
 		<p id="b"></p>
+	<br>
 		<p>To receive a C, you must score a:</p>
 		<p id="c"></p>
+	<br>
 		<p>To receive a D, you must score a:</p>
 		<p id="d"></p>
 
@@ -52,12 +55,12 @@
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 	
-	var lowA = getParameterByName('lowA'); 
+	//var lowA = getParameterByName('lowA'); 
 	var lowB = getParameterByName('lowB'); 
 	var lowC = getParameterByName('lowC'); 
 	var lowD = getParameterByName('lowD');
 	
-	document.getElementById("a").innerHTML = "92";
+	document.getElementById("a").innerHTML = getParameterByName('lowA');
 	document.getElementById("b").innerHTML = lowB;
 	document.getElementById("c").innerHTML = lowC;
 	document.getElementById("d").innerHTML = lowD;
