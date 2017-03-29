@@ -55,15 +55,10 @@
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 	
-	//var lowA = getParameterByName('lowA'); 
-	var lowB = getParameterByName('lowB'); 
-	var lowC = getParameterByName('lowC'); 
-	var lowD = getParameterByName('lowD');
-	
 	document.getElementById("a").innerHTML = getParameterByName('lowA');
-	document.getElementById("b").innerHTML = lowB;
-	document.getElementById("c").innerHTML = lowC;
-	document.getElementById("d").innerHTML = lowD;
+	document.getElementById("b").innerHTML = getParameterByName('lowB');
+	document.getElementById("c").innerHTML = getParameterByName('lowC');
+	document.getElementById("d").innerHTML = getParameterByName('lowD');
 		
 </script>
 </body>
