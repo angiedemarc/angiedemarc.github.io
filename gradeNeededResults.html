@@ -15,6 +15,7 @@
 			p{
 				padding-left: 20%;
 				font-family: 'Muli', sans-serif;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -24,10 +25,15 @@
 	</script>
 		<h1> <b>Results:</h1></b>
 
-		<p style = "text-align: center; padding-left: 0%; padding-bottom: 25px"> This will only provide the scores needed for achievable grades. <br>
-					For example, if it is impossible to receive a D even if you get a 0, it will not show you what you need for a D.</p>
+		<p style = "padding-left: 0%; padding-bottom: 25px"> This will only provide the scores needed for achievable grades. <br>
+					For example, if it is impossible to receive a D even if you get a 0%, it will not show you what you need for a D.</p>
 					<p> 
-					
+		
+		<p> To receive an A:  <%=Request.QueryString("lowA")%> <br>
+		<br>To receive a B:   <%=Request.QueryString("lowB")%> <br>
+		<br>To receive a C:   <%=Request.QueryString("lowC")%> <br>
+		<br>To receive a D:   <%=Request.QueryString("lowD")%> <br>
+		
 		
 		
 	<!-- footer -->
