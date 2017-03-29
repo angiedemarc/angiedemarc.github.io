@@ -28,6 +28,11 @@
 		<p style = "padding-left: 0%; padding-bottom: 25px"> This will only provide the scores needed for achievable grades. <br>
 					For example, if it is impossible to receive a D even if you get a 0%, it will not show you what you need for a D.</p>
 					<p> 
+		<%
+for i=1 to Request.QueryString("n").Count
+  Response.Write(Request.QueryString("n")(i) & "<br>")
+next
+%> 
 		
 		<p> To receive an A:  <%=Request.QueryString("lowA")%> <br>
 		<br>To receive a B:   <%=Request.QueryString("lowB")%> <br>
