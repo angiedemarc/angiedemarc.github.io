@@ -228,7 +228,8 @@
 		}
 		
 		var myWindow = window.open(webName);
-		location.replace("https://angiedemarc.github.io/gradeNeeded.html");
+		//document.getElementByID("myButton").href = "https://angiedemarc.github.io/gradeNeeded.html");
+		window.location.href = "https://angiedemarc.github.io/gradeNeeded.html";
 		}
 
 	</script>
@@ -311,6 +312,7 @@
 				
 				<p class="signin button" style = "padding-top: 10px"> 
 					<input type="submit" value="Find Grade" onclick = "checkForm(form)"/>
+					//id = "myButton"
 				</p>
 			</form>
 	</div>
