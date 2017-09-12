@@ -22,18 +22,17 @@
 <body>
 		<h1> <b>Results:</h1></b>
 
-		<p style = "text-align: center; padding-left: 0%; padding-bottom: 25px"> These are your results. </p>
-	
-		<p>To receive an A, you must score:</p>
+		
+		<p id = "receiveA"></p>
 		<p id="a"></p>
 	<br>
-		<p>To receive a B, you must score:</p>
+		<p id = "receiveB"></p>
 		<p id="b"></p>
 	<br>
-		<p>To receive a C, you must score:</p>
+		<p id = "receiveC"></p>
 		<p id="c"></p>
 	<br>
-		<p>To receive a D, you must score:</p>
+		<p id = "receiveD"></p>
 		<p id="d"></p>
 
 
@@ -54,10 +53,25 @@
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 	
+	//checks which grades are obtainable and fills out info
+	if (getParameterByName('lowA') != null){
+	document.getElementById("receiveA").innerHTML = "To receive an A you must score:";
 	document.getElementById("a").innerHTML = getParameterByName('lowA');
+	}
+	if (getParameterByName('lowB') != null){
+	document.getElementById("receiveB").innerHTML = "To receive a B you must score:";
 	document.getElementById("b").innerHTML = getParameterByName('lowB');
+	}
+	if (getParameterByName('lowC') != null){
+	document.getElementById("receiveC").innerHTML = "To receive a C you must score:";
 	document.getElementById("c").innerHTML = getParameterByName('lowC');
+	}
+	if (getParameterByName('lowD') != null){
+	document.getElementById("receiveD").innerHTML = "To receive a D you must score:";
 	document.getElementById("d").innerHTML = getParameterByName('lowD');
+	}
+	
+	
 		
 </script>
 </body>
