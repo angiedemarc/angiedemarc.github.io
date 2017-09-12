@@ -41,34 +41,27 @@
 	<div style = "padding: 15px">
 	</div>
 <script>
-	function getParameterByName(name, url) {
-		if (!url) {
-			url = window.location.href;
-		}
-		name = name.replace(/[\[\]]/g, "\\$&");
-		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-			results = regex.exec(url);
-		if (!results) return null;
-		if (!results[2]) return '';
-		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	function getPrm(name) {
+		var searchParams = new URLSearchParams(window.location.search);
+		return searchParams.get(name);
 	}
 	
 	//checks which grades are obtainable and fills out info
-	if (getParameterByName('lowA') != null){
+	if (getPrm('lowA') != null){
 	document.getElementById("receiveA").innerHTML = "To receive an A you must score:";
-	document.getElementById("a").innerHTML = getParameterByName('lowA');
+	document.getElementById("a").innerHTML = getPrm('lowA');
 	}
-	if (getParameterByName('lowB') != null){
+	if (getPrm('lowB') != null){
 	document.getElementById("receiveB").innerHTML = "To receive a B you must score:";
-	document.getElementById("b").innerHTML = getParameterByName('lowB');
+	document.getElementById("b").innerHTML = getPrm('lowB');
 	}
-	if (getParameterByName('lowC') != null){
+	if (getPrm('lowC') != null){
 	document.getElementById("receiveC").innerHTML = "To receive a C you must score:";
-	document.getElementById("c").innerHTML = getParameterByName('lowC');
+	document.getElementById("c").innerHTML = getPrm('lowC');
 	}
-	if (getParameterByName('lowD') != null){
+	if (getPrm('lowD') != null){
 	document.getElementById("receiveD").innerHTML = "To receive a D you must score:";
-	document.getElementById("d").innerHTML = getParameterByName('lowD');
+	document.getElementById("d").innerHTML = getPrm('lowD');
 	}
 	
 	
