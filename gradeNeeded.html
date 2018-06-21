@@ -1,111 +1,37 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title> Grade Needed </title>
-		<link href='http://fonts.googleapis.com/css?family=Bree+Serif|Muli' rel='stylesheet' type='text/css'>
-		<style>
-			html, body {
-				background: #00B8E6;
-			}
-			h1{
-				padding-top: 15px;
-				text-align: center;
-				font-family: 'Bree Serif', serif;
-				font-size: 40px;
-			}
-			p{
-				padding-left: 20%;
-				font-family: 'Muli', sans-serif;
-			}
-		</style>
-	</head>
+  <head>
+    <title>Grade Needed</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Grade Needed</h1>
+    <p id="numGroupsP">
+      How many groups make up your total grade? (ex. 'homework' 'summative' and 'formative' would be 3)
+	  DO NOT INCLUDE EXTRA CREDIT IF IT IS IT'S OWN GROUP!! (ok to add if have 22/20 in a group)<br> Have any questions/comments/complaints? Email me! ald5706@psu.edu
+    </p>
+    <input type = 'text' id="numGroups">
+    
+    <p id="ptsEarnedP">Points earned for group 1:</p>
+    <input type="text" id="ptsEarned">
+    <p id="ptsPossibleP">Total possible points for group 1:</p>
+    <input type="text" id="ptsPossible">
+    <p>How much of the total grade is this group worth? Drag slider</p>
+    <input type = "range" id="otherImpact" min="1" max="100" step="0.5" class = "slider" oninput="percent();">
+	<p id ="impactP">50%</p>
+    
+	<p id="ptsPossibleAP">Points assignment is worth: </p>
+	<input = "text" id = "ptsPossibleA">
 	
-<body>
-
-
-		<h1> <b>What Grade Do I Need?</h1></b>
-
-		<p style = "text-align: center; padding-left: 0%; padding-bottom: 25px"> This program will tell you how many points you need on your upcoming <br>
-		formative, homework, or summative assignment in order to get the grade you want!</p>
-		
-		
-		<div id="giveInput" class="animate form">
-			<form  autocomplete="on"> 
-				<p> 
-					<label>Enter YOUR points for 'Formative':</label>
-					<input name="givenForm" id = "givenForm" type = "text" required = "required" placeholder="Ex: 138"/> 
-				</p>
-				<p> 
-					<label>Enter MAX points for 'Formative':</label>
-					<input name="maxForm" id = "maxForm" type="text" required = "required" placeholder="Ex: 150" />
-				</p>
-				<p>
-					<label>What percentage is formative worth?</label>
-					<input type="radio" name="form" id="form0"> 0%
-					<input type="radio" name="form" id="form10">10%
-					<input type="radio" name="form" id="form40" checked>40%
-					<input type="radio" name="form" id="form50">50%
-					<input type="radio" name="form" id="form100">100%
-					<input type="radio" name="form" id="otherPerForm">Other:
-					<input name = "otherForm" id = "otherForm" type = "number"/>
-				</p>
-				<p style = "padding-top: 15px"> 
-					<label>Enter YOUR points for 'Homework':</label>
-					<input name="givenHW" id = "givenHW" type = "text" required = "required" placeholder="Ex: 27"/> 
-				</p>
-				<p> 
-					<label>Enter MAX points for 'Homework':</label>
-					<input name="maxHW" id = "maxHW" type="text" required = "required" placeholder="Ex: 30" />
-				</p>
-				<p>
-					<label>What percentage is homework worth?</label>
-					<input type="radio" name="hw" id="hw0"> 0%
-					<input type="radio" name="hw" id="hw10" checked>10%
-					<input type="radio" name="hw" id="hw40">40%
-					<input type="radio" name="hw" id="hw50">50%
-					<input type="radio" name="hw" id="hw100">100%
-					<input type="radio" name="hw" id="otherPerHW">Other:
-					<input name = "otherHW" id = "otherHW" type = "number"/>
-				</p>
-				<p style = "padding-top: 15px"> 
-					<label>Enter YOUR points for 'Summative':</label>
-					<input name="givenSumm" id = "givenSumm" type = "text" required = "required" placeholder="Ex: 189"/> 
-				</p>
-				<p> 
-					<label>Enter MAX points for 'Summative':</label>
-					<input name="maxSumm" id = "maxSumm" type="text" required = "required" placeholder="Ex: 200" />
-				</p>
-				<p>
-					<label>What percentage is summative worth?</label>
-					<input type="radio" name="summ" id="summ0"> 0%
-					<input type="radio" name="summ" id="summ10">10%
-					<input type="radio" name="summ" id="summ40">40%
-					<input type="radio" name="summ" id="summ50" checked>50%
-					<input type="radio" name="summ" id="summ100">100%
-					<input type="radio" name="summ" id="otherPerSumm">Other:
-					<input name = "otherSumm" id = "otherSumm" type = "number"/>
-				</p>
-				<p>
-					<label>What is your assignment?</label>
-					<br>
-					<input type="radio" name="type" id="radioForm" checked>Formative
-					<br>
-					<input type="radio" name="type" id="radioHW">Homework
-					<br>
-					<input type="radio" name="type" id="radioSumm">Summative
-				</p>
-				<p>
-					<label>How many points is this assignment worth?</label>
-					<input name="assignPoints" id = "assignPoints" type = "text" required = "required" placeholder="Ex: 20"/> 
-				</p>
-				
-				<p class="signin button" style = "padding-top: 10px"> 
-					<button id = "button" onclick = "checkForm(form)">Find Grade</button>
-				</p>
-			</form>
-	</div>
-	<!-- footer -->
-	<div style = "padding: 15px">
-	</div>
-	<script src = "jsgn.js"></script>
-	</body>
+	<p id="gradeDesiredP">Grade wanted (ex. 94): </p>
+	<input = "text" id = "gradeDesired">
+	
+    <br>
+    <button onclick="submitClicked();">Submit</button>
+	
+	<h2 id = "grade"></h2>
+	<h2 id = "assignment"></h2>
+    
+    <script src="script.js"></script>
+  </body>
 </html>
