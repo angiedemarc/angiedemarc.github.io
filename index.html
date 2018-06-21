@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grade Needed</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Grade Needed</h1>
+    <p id="numGroupsP">
+      How many groups make up your total grade? (ex. 'homework' 'summative' and 'formative' would be 3)
+	  DO NOT INCLUDE EXTRA CREDIT IF IT IS IT'S OWN GROUP!! (ok to add if have 22/20 in a group)<br> Have any questions/comments/complaints? Email me! ald5706@psu.edu
+    </p>
+    <input type = 'text' id="numGroups">
+    
+    <p id="ptsEarnedP">Points earned for group 1:</p>
+    <input type="text" id="ptsEarned">
+    <p id="ptsPossibleP">Total possible points for group 1:</p>
+    <input type="text" id="ptsPossible">
+    <p>How much of the total grade is this group worth? Drag slider</p>
+    <input type = "range" id="otherImpact" min="1" max="100" step="0.5" class = "slider" oninput="percent();">
+	<p id ="impactP">50%</p>
+    
+	<p id="ptsPossibleAP">Points assignment is worth: </p>
+	<input = "text" id = "ptsPossibleA">
+	
+	<p id="gradeDesiredP">Grade wanted (ex. 94): </p>
+	<input = "text" id = "gradeDesired">
+	
+    <br>
+    <button onclick="submitClicked();">Submit</button>
+	
+	<h2 id = "grade"></h2>
+	<h2 id = "assignment"></h2>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

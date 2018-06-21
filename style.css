@@ -1,0 +1,35 @@
+
+body {
+  background-color: powderblue;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+#ptsPossibleA, #ptsPossibleAP, #gradeDesired, #gradeDesiredP{
+	visibility: hidden;
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 25px;
+    background: white;
+    opacity: 0.9;
+
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: black;
+    cursor: pointer;
+}
